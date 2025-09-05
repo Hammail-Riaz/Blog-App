@@ -11,6 +11,13 @@ A blog serves as a personal journal, a news platform, or a place to share knowle
 This project recreates the core functionality of a blogging platform on a smaller scale to help understand how such systems work under the hood.
 
 ---
+## ⚙️ Screenshots
+   - Dashboard page
+   ![Dashboard](Statics/dashboard.png)
+
+   - Explore page
+   ![Dashboard](Statics/explore.png)
+
 
 ## ⚙️ Features
 - **User Authentication**
