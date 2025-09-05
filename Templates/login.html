@@ -1,0 +1,66 @@
+
+{% extends "base.html" %}
+{% block title %}Blog - Log In{% endblock %}
+
+{% block body %}
+
+
+{% with msg = get_flashed_messages(with_categories=true) %}
+<div class="flash-message">
+    {% if msg %}
+    {% for category, message in msg %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endwith %}
+
+<div class="d-flex justify-content-center mt-5">
+  <div class="card shadow-lg p-4 rounded-4 p-5" style="max-width: 700px; width: 100%;">
+    <h1 class="text-center mb-4">Log In to Account</h1>
+
+    <form method="POST" action="{{ url_for('login') }}" >
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Your username" required>
+      </div>
+
+   
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Your password" required>
+      </div>
+
+    
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Log In</button>
+      </div>
+    </form>
+
+   
+  </div>
+</div>
+<!-- 
+<form method="POST" action="{{ url_for('login') }}">
+    
+
+    <div class="mb-3">
+    <label for="uname">Username:</label><br>
+    <input type="text" id="uname" placeholder="Your Username" name="username">
+    </div>
+
+    <div class="mb-3">
+        <label for="pword">Password:</label><br>
+        <input type="password" id="password" placeholder="Your Password" name="password">
+    </div>
+
+    <button type="submit">Log In</button>
+    
+</form> -->
+{% endblock %}

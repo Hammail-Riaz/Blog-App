@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Blog - Explore{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Explore</h1>
+        {% if current_user.is_authenticated %}
+            <p class="text-muted">Hello, <span class="fw-semibold">{{ current_user.username }}</span> 👋</p>
+        {% else %}
+            <p class="text-danger">⚠ No user is logged in</p>
+        {% endif %}
+    </div>
+
+    <!-- Blogs Section -->
+    <div class="row justify-content-center">
+        {% for blog in blogs %}
+        <div class="col-md-8 mb-4">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <h3 class="card-title">{{ blog[0] }}</h3>
+                    <div class="mb-2 text-muted small">
+                        ✍ User: <span class="fw-semibold">{{ blog[3] }}</span> | 📅 Created on: {{ blog[2] }}
+                    </div>
+                    <p class="card-text">{{ blog[1] }}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-8">
+            <div class="alert alert-info text-center rounded-4 shadow-sm">
+                No blogs available.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

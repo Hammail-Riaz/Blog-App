@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block title %}Notes App - Delete Note{% endblock %}
+
+{% block body %}
+<h1>Delete Your Note</h1>
+
+{% with msg = get_flashed_messages(with_categories=true) %}
+<div class="flash-message">
+    {% if msg %}
+    {% for category, message in msg %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endwith %}
+
+<p>No note to delete</p>
+
+<form method="POST" {% endblock %}
